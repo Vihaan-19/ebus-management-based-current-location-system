@@ -13,11 +13,11 @@ datasource db {
 model User {
     id             String            @id @default(uuid()) // Unique user ID
     email          String            @unique
-    name           String?
+    name           String
     role           Role              @default(CREATOR) // CREATOR or EDITOR
     workspaces     WorkspaceMember[]
     createdAt      DateTime          @default(now())
-    updatedAt      DateTime          @updatedAt
+    updatedAt      DateTime          @default(now()) @updatedAt
     Workspace      Workspace?
     Video          Video[]
     YouTubeAccount YouTubeAccount?
